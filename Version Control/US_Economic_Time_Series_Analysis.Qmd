@@ -1,0 +1,72 @@
+---
+title: "US Economic Time Series Analysis"
+author: "Divya Pariti - 23200831"
+format: pdf
+editor: visual
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
+```
+
+**Introduction**
+
+This report explores the US economic time series dataset available in the `ggplot2` package. The dataset provides several economic indicators over time, which are crucial for understanding trends in the US economy.
+
+**Overview of the Dataset**
+
+Here are the main components of the economics dataset:
+
+1.  `date` : The date of the observation, recorded monthly.
+2.  `pce` : Personal consumption expenditures (in billions of dollars). This measures the total amount of spending by individuals in the U.S. on goods and services.
+3.  `pop` : Total population of the U.S. at the time of the observation.
+4.  `psavert` : Personal saving rate, which is the percentage of people's income remaining each month after taxes and spending.
+5.  `uempmed` : Median duration of unemployment, in weeks. This measures the median time that unemployed people have been looking for work.
+6.  `unemploy` : Number of unemployed individuals, in thousands.
+
+```{r load-data, echo=FALSE}
+head(economics)
+```
+
+```{r}
+# Display a summary of the 'economics' dataset.
+# The summary includes statistics like minimum, maximum, median, mean, and quartiles for each variable.
+summary(economics)
+```
+
+**Economic Trends Over Time**
+
+***Unemployment Rate***
+
+The following plot shows the unemployment rate over time, which is a key indicator of economic health.
+
+```{r unemployment-plot, echo=FALSE, fig.cap="Figure 1: Unemployment Rate Over Time"}
+ggplot(economics, aes(x = date, y = unemploy / pop)) +
+  geom_line(color = "blue") +
+  labs(x = "Year", y = "Unemployment Rate (as a fraction of population)",
+       title = "Unemployment Rate Over Time") +
+  theme_minimal()
+```
+
+**Analysis:**
+
+-   This plot illustrates the changes in the unemployment rate over time.
+
+-   Understanding these trends is vital for economic planning and policy-making.
+
+-   The graph begins with a relatively low unemployment rate, which slowly rises.
+
+-   Before the 2000s, there is a period of relative stability with lower unemployment rates, suggesting a healthy economic phase.
+
+-   After the peak in 2009, the unemployment rate shows a declining trend, the rate decreases steadily, suggesting economic improvement and job market stabilization.
+
+**Conclusion:**
+
+-   The `economics` dataset comprises monthly records of several key economic indicators such as unemployment rate, personal savings rate, and personal consumption expenditures.
+
+-   The unemployment rate is a crucial indicator of economic health, reflecting underlying economic conditions, policy changes, and global economic impacts.
+
+-   The fluctuations observed in the graph correspond with historical economic events, demonstrating the sensitivity of employment to economic cycles.
+
+-   The overall downward trend in recent years suggests effective economic policies and recovery mechanisms.
