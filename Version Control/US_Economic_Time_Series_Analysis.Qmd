@@ -35,6 +35,14 @@ head(economics)
 summary(economics)
 ```
 
+```{r}
+# Compute correlation matrix
+corr_mat = cor(economics[c("pce", "pop", "psavert", "uempmed", "unemploy")])
+
+# Print correlation matrix
+print(corr_mat)
+```
+
 **Economic Trends Over Time**
 
 ***Unemployment Rate***
