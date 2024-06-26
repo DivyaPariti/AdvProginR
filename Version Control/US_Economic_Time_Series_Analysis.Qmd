@@ -42,6 +42,16 @@ corr_mat = cor(economics[c("pce", "pop", "psavert", "uempmed", "unemploy")])
 # Print correlation matrix
 print(corr_mat)
 ```
+**Personal Consumption Expenditures **
+
+```{r}
+# Boxplot of Personal Consumption Expenditures (PCE)
+ggplot(economics, aes(x = 1, y = pce)) +
+  geom_boxplot(fill = "burlywood") +
+  labs(x = "", y = "PCE in billion dollars",
+       title = "Boxplot of PCE over time") +
+  theme_minimal()
+```
 
 **Economic Trends Over Time**
 
